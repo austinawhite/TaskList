@@ -1,1 +1,20 @@
+DROP TABLE IF EXISTS users CASCADE; 
+DROP TABLE IF EXISTS tasks;
 
+--- CREATE USERS TABLE ---
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY, 
+    username TEXT NOT NULL UNIQUE, 
+    user_password TEXT NOT NULL
+);
+
+
+--- CREATE TASKS TABLE --- 
+
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY, 
+    title TEXT NOT NULL, 
+    done BOOLEAN NOT NULL DEFAULT false,
+    user_id INTEGER NOT NULL REFERENCES users(id) 
+);
