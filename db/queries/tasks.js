@@ -34,10 +34,6 @@ export async function getTasksByUserId(userId) {
 }
 
 
-// Get task with ID attached 
-
-
-
 // Add task 
 
 export async function createTask(title, done, userId) {

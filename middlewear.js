@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
 export function authenticateToken (req, res, next) {
     const authHeader = req.headers['authorization']; 
     const token = authHeader && authHeader.split ('')[1];
+    const decodedJWT = jwt.verify(token, process.env.JWT_SECRET);
 
     if (!token){
         return res.status(401).json({error: 'Access token needed'})
